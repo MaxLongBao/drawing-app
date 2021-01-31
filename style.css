@@ -1,4 +1,44 @@
+body {
+  background-color: #aaaaaa;
+}
+
 canvas {
   border: 1px solid black;
   margin-left: 10px;
+  background-color: #ffffff;
+}
+
+.frame {
+  display: flex;
+}
+
+.tool {
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+  margin-bottom: 1px;
+  background-color: #aaaaaa;
+  border-radius: 5px;
+  border-top: 2px solid #eaeaea;
+  border-right: 2px solid #333333;
+  border-bottom: 2px solid #333333;
+  border-left: 2px solid #eaeaea;
+}
+
+.bottom-tools {
+  display: flex;
+  justify-content: space-around;
+}
+
+.selected {
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+  margin-bottom: 1px;
+  background-color: #cccccc;
+  border-radius: 5px;
+  border-top: 3px solid #333333;
+  border-right: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  border-left: 3px solid #333333;
 }

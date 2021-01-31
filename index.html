@@ -5,9 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel='stylesheet' href='style.css'>
   <script defer src='script.js'></script>
-  <title>Drawing App</title>
+  <title>Paint!</title>
 </head>
 <body>
-   <canvas id='canvas'>Your browser does not support this app :(</canvas>
+  <section class='frame'>
+    <section class='tools'>
+      <div class='tool selected' id='pencil'>
+        <img src='assets/pencil.svg'>
+      </div>
+      <div class='tool' id='brush'>
+        <img src='assets/brush.svg'>
+      </div>
+      <div class='tool' id='eraser'>
+        <img src='assets/eraser.svg'>
+      </div>
+      <div class='tool' id='nuke'>
+        <!-- <img src='assets/nuclear.svg'> -->
+      </div>
+    </section>
+    <canvas id='canvas'>Your browser does not support this app :(</canvas>
+  </section>
+  <!-- <section class='bottom-tools'>
+    <section class='colors'>
+      colors
+    </section>
+    <section class='size'>
+      size
+    </section>
+  </section> -->
 </body>
 </html>

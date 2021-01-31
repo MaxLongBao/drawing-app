@@ -1,10 +1,10 @@
 console.log('hello');
 
 const canvas = document.getElementById('canvas');
-canvas.height = 550;
-canvas.width = 1200;
-// canvas.height = 55;
-// canvas.width = 120;
+// canvas.height = 550;
+// canvas.width = 1200;
+canvas.height = 55;
+canvas.width = 120;
 const ctx = canvas.getContext('2d');
 
 let painting = false;

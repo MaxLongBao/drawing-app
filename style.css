@@ -5,6 +5,7 @@ body {
 canvas {
   margin-left: 10px;
   background-color: #ffffff;
+  cursor: crosshair;
 }
 
 .frame {

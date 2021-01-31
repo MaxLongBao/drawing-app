@@ -32,15 +32,10 @@ const draw = (e) => {
   e.preventDefault();
 }
 
-const hello = () => {
-  console.log('hello');
-}
-
 canvas.addEventListener('mousedown', startPosition);
 canvas.addEventListener('mouseup', endPosition);
 canvas.addEventListener('mouseleave', endPosition);
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('touchstart', startPosition);
-canvas.addEventListener('touchstart', hello);
 canvas.addEventListener('touchend', endPosition);
 canvas.addEventListener('touchmove', draw);

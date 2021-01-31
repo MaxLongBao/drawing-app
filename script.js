@@ -17,6 +17,7 @@ let toolSelected = {
   size: 10,
   color: '#000000',
 }
+
 let painting = false;
 
 const startPosition = (e) => {
@@ -55,8 +56,8 @@ const selectPencil = () => {
   brush.className = 'tool';
   eraser.classList.remove('selected');
   eraser.className = 'tool';
-  nuke.classList.remove('selected');
-  nuke.className = 'tool';
+  // nuke.classList.remove('selected');
+  // nuke.className = 'tool';
 }
 
 const selectBrush = () => {
@@ -67,8 +68,8 @@ const selectBrush = () => {
   pencil.className = 'tool';
   eraser.classList.remove('selected');
   eraser.className = 'tool';
-  nuke.classList.remove('selected');
-  nuke.className = 'tool';
+  // nuke.classList.remove('selected');
+  // nuke.className = 'tool';
 }
 
 const selectEraser = () => {
@@ -79,12 +80,12 @@ const selectEraser = () => {
   pencil.className = 'tool';
   brush.classList.remove('selected');
   brush.className = 'tool';
-  nuke.classList.remove('selected');
-  nuke.className = 'tool';
+  // nuke.classList.remove('selected');
+  // nuke.className = 'tool';
 }
 
 const selectNuke = () => {
-  
+  return;
 }
 
 canvas.addEventListener('mousedown', startPosition);

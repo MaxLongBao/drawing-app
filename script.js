@@ -79,7 +79,7 @@ const selectBrush = () => {
 
 const selectEraser = () => {
   toolSelected.shape = 'round';
-  toolSelected.size = 10;
+  toolSelected.size = lastSize;
   toolSelected.color = 'white';
   eraser.className = 'selected';
   pencil.classList.remove('selected');

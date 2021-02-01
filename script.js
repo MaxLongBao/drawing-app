@@ -3,22 +3,28 @@ const pencil = document.getElementById('pencil');
 const brush = document.getElementById('brush');
 const eraser = document.getElementById('eraser');
 const nuke = document.getElementById('nuke');
+const save = document.getElementById('save')
+const size = document.getElementById('range');
 const color = document.getElementById('color-picker');
 
-canvas.height = 500;
-canvas.width = 1100;
+canvas.height = 550;
+canvas.width = 1200;
 // canvas.height = 55;
 // canvas.width = 120;
 const ctx = canvas.getContext('2d');
 
 let toolSelected = {
   shape: 'square',
-  size: 10,
+  size: 1,
   color: '#000000',
 }
 
+// global var to keep track of size
+let lastSize = toolSelected.size;
+
 // needed to keep the color after selecting the eraser
-let lastColor = toolSelected.color; 
+let lastColor = toolSelected.color;
+
 let painting = false;
 
 const startPosition = (e) => {
@@ -51,6 +57,7 @@ const draw = (e) => {
 
 const selectPencil = () => {
   toolSelected.shape = 'square';
+  toolSelected.size = 1;
   toolSelected.color = lastColor;
   pencil.className = 'selected';
   brush.classList.remove('selected');
@@ -61,6 +68,7 @@ const selectPencil = () => {
 
 const selectBrush = () => {
   toolSelected.shape = 'round';
+  toolSelected.size = lastSize;
   toolSelected.color = lastColor;
   brush.className = 'selected';
   pencil.classList.remove('selected');
@@ -71,6 +79,7 @@ const selectBrush = () => {
 
 const selectEraser = () => {
   toolSelected.shape = 'round';
+  toolSelected.size = 10;
   toolSelected.color = 'white';
   eraser.className = 'selected';
   pencil.classList.remove('selected');
@@ -83,11 +92,22 @@ const selectNuke = () => {
   return;
 }
 
-const assignColor = (e) => {
+const download = () => {
+  return;
+}
+
+const setSize = (e) => {
+  console.log(e.target.value);
+  toolSelected.size = e.target.value;
+  lastSize = e.target.value;
+}
+
+const setColor = (e) => {
   toolSelected.color = e.target.value;
   lastColor = e.target.value;
 }
 
+// drawing events
 canvas.addEventListener('mousedown', startPosition);
 canvas.addEventListener('mouseup', endPosition);
 canvas.addEventListener('mouseleave', endPosition);
@@ -96,9 +116,13 @@ canvas.addEventListener('touchstart', startPosition);
 canvas.addEventListener('touchend', endPosition);
 canvas.addEventListener('touchmove', draw);
 
+// tools events
 pencil.addEventListener('click', selectPencil);
 brush.addEventListener('click', selectBrush);
 eraser.addEventListener('click', selectEraser);
 nuke.addEventListener('click', selectNuke);
+save.addEventListener('click', download);
 
-color.addEventListener('change', assignColor);
+// size and color events
+size.addEventListener('change', setSize)
+color.addEventListener('change', setColor);

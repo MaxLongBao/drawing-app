@@ -19,12 +19,6 @@ let toolSelected = {
   color: '#000000',
 }
 
-// global var to keep track of size
-let lastSize = toolSelected.size;
-
-// needed to keep the color after selecting the eraser
-let lastColor = toolSelected.color;
-
 let painting = false;
 
 const startPosition = (e) => {
@@ -47,10 +41,11 @@ const draw = (e) => {
   if (e.touches) {
     ctx.lineTo((e.touches[0].clientX - e.target.offsetLeft), (e.touches[0].clientY - e.target.offsetTop));
   
-    // for mouse devices
+  // for mouse devices
   } else {
     ctx.lineTo(e.offsetX, e.offsetY);
   }
+  
   ctx.stroke();
   e.preventDefault();
 }
@@ -58,7 +53,7 @@ const draw = (e) => {
 const selectPencil = () => {
   toolSelected.shape = 'square';
   toolSelected.size = 1;
-  toolSelected.color = lastColor;
+  toolSelected.color = color.value;
   pencil.className = 'selected';
   brush.classList.remove('selected');
   brush.className = 'tool';
@@ -68,8 +63,8 @@ const selectPencil = () => {
 
 const selectBrush = () => {
   toolSelected.shape = 'round';
-  toolSelected.size = lastSize;
-  toolSelected.color = lastColor;
+  toolSelected.size = size.value;
+  toolSelected.color = color.value;
   brush.className = 'selected';
   pencil.classList.remove('selected');
   pencil.className = 'tool';
@@ -79,7 +74,7 @@ const selectBrush = () => {
 
 const selectEraser = () => {
   toolSelected.shape = 'round';
-  toolSelected.size = lastSize;
+  toolSelected.size = size.value;
   toolSelected.color = 'white';
   eraser.className = 'selected';
   pencil.classList.remove('selected');
@@ -89,6 +84,7 @@ const selectEraser = () => {
 }
 
 const selectNuke = () => {
+  console.log(size.value)
   return;
 }
 
@@ -98,12 +94,10 @@ const download = () => {
 
 const setSize = (e) => {
   toolSelected.size = e.target.value;
-  lastSize = e.target.value;
 }
 
 const setColor = (e) => {
   toolSelected.color = e.target.value;
-  lastColor = e.target.value;
 }
 
 // drawing events

@@ -1,10 +1,9 @@
-console.log('hello');
-
 const canvas = document.getElementById('canvas');
 const pencil = document.getElementById('pencil');
 const brush = document.getElementById('brush');
 const eraser = document.getElementById('eraser');
 const nuke = document.getElementById('nuke');
+const color = document.getElementById('color-picker');
 
 canvas.height = 500;
 canvas.width = 1100;
@@ -56,8 +55,6 @@ const selectPencil = () => {
   brush.className = 'tool';
   eraser.classList.remove('selected');
   eraser.className = 'tool';
-  // nuke.classList.remove('selected');
-  // nuke.className = 'tool';
 }
 
 const selectBrush = () => {
@@ -68,8 +65,6 @@ const selectBrush = () => {
   pencil.className = 'tool';
   eraser.classList.remove('selected');
   eraser.className = 'tool';
-  // nuke.classList.remove('selected');
-  // nuke.className = 'tool';
 }
 
 const selectEraser = () => {
@@ -80,12 +75,14 @@ const selectEraser = () => {
   pencil.className = 'tool';
   brush.classList.remove('selected');
   brush.className = 'tool';
-  // nuke.classList.remove('selected');
-  // nuke.className = 'tool';
 }
 
 const selectNuke = () => {
   return;
+}
+
+const assignColor = (e) => {
+  toolSelected.color = e.target.value;
 }
 
 canvas.addEventListener('mousedown', startPosition);
@@ -100,3 +97,5 @@ pencil.addEventListener('click', selectPencil);
 brush.addEventListener('click', selectBrush);
 eraser.addEventListener('click', selectEraser);
 nuke.addEventListener('click', selectNuke);
+
+color.addEventListener('change', assignColor);

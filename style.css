@@ -12,6 +12,12 @@ canvas {
   display: flex;
 }
 
+.tools {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .tool {
   width: 35px;
   height: 35px;
@@ -27,7 +33,13 @@ canvas {
 
 .bottom-tools {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+}
+
+#color-picker {
+  width: 43px;
+  height: 43px;
+  border-radius: 5px;
 }
 
 .selected {

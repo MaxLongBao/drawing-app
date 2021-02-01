@@ -6,9 +6,12 @@ const nuke = document.getElementById('nuke');
 const save = document.getElementById('save')
 const size = document.getElementById('range');
 const color = document.getElementById('color-picker');
+console.log(window)
+// canvas.height = 550;
+// canvas.width = 1200;
+canvas.height = window.innerHeight - 100;
+canvas.width = window.innerWidth - 100;
 
-canvas.height = 550;
-canvas.width = 1200;
 // canvas.height = 55;
 // canvas.width = 120;
 const ctx = canvas.getContext('2d');

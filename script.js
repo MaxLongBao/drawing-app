@@ -17,6 +17,8 @@ let toolSelected = {
   color: '#000000',
 }
 
+// needed to keep the color after selecting the eraser
+let lastColor = toolSelected.color; 
 let painting = false;
 
 const startPosition = (e) => {
@@ -49,7 +51,7 @@ const draw = (e) => {
 
 const selectPencil = () => {
   toolSelected.shape = 'square';
-  toolSelected.color = 'black';
+  toolSelected.color = lastColor;
   pencil.className = 'selected';
   brush.classList.remove('selected');
   brush.className = 'tool';
@@ -59,7 +61,7 @@ const selectPencil = () => {
 
 const selectBrush = () => {
   toolSelected.shape = 'round';
-  toolSelected.color = 'black';
+  toolSelected.color = lastColor;
   brush.className = 'selected';
   pencil.classList.remove('selected');
   pencil.className = 'tool';
@@ -83,6 +85,7 @@ const selectNuke = () => {
 
 const assignColor = (e) => {
   toolSelected.color = e.target.value;
+  lastColor = e.target.value;
 }
 
 canvas.addEventListener('mousedown', startPosition);

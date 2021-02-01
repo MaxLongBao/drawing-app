@@ -3,7 +3,6 @@ const pencil = document.getElementById('pencil');
 const brush = document.getElementById('brush');
 const eraser = document.getElementById('eraser');
 const nuke = document.getElementById('nuke');
-const save = document.getElementById('save')
 const size = document.getElementById('range');
 const color = document.getElementById('color-picker');
 
@@ -89,13 +88,16 @@ const selectEraser = () => {
 }
 
 const selectNuke = () => {
-  console.log(size.value)
-  return;
+  if(confirm('Do you really want to delete your drawing?') === true) {
+    ctx.fillStyle = '#ffffff'
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
 }
 
-const download = () => {
-  return;
-}
+download_img = function(el) {
+  const image = canvas.toDataURL("image/jpg");
+  el.href = image;
+};
 
 const setSize = (e) => {
   toolSelected.size = e.target.value;
@@ -105,11 +107,6 @@ const setSize = (e) => {
 const setColor = (e) => {
   toolSelected.color = e.target.value;
 }
-
-download_img = function(el) {
-  const image = canvas.toDataURL("image/jpg");
-  el.href = image;
-};
 
 
 // drawing events
@@ -126,7 +123,6 @@ pencil.addEventListener('click', selectPencil);
 brush.addEventListener('click', selectBrush);
 eraser.addEventListener('click', selectEraser);
 nuke.addEventListener('click', selectNuke);
-save.addEventListener('click', download);
 
 // size and color events
 size.addEventListener('change', setSize)

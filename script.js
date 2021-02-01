@@ -97,7 +97,6 @@ const download = () => {
 }
 
 const setSize = (e) => {
-  console.log(e.target.value);
   toolSelected.size = e.target.value;
   lastSize = e.target.value;
 }
